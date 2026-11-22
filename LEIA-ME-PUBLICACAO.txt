@@ -1,0 +1,16 @@
+PUBLICAÇÃO DO SITE NO GITHUB PAGES
+
+Este projeto está configurado para o endereço:
+https://davi-fernandes-de-brito.github.io/david-alves/
+
+O projeto deve ser enviado para a branch main do repositório david-alves.
+No GitHub, acesse Settings > Pages e selecione GitHub Actions em Build and deployment > Source.
+O arquivo .github/workflows/deploy.yml fará o build do React com Vite e publicará a pasta dist.
+
+Para testar localmente:
+1. Instale Node.js (versão 22 ou compatível).
+2. Abra esta pasta no VS Code.
+3. Execute: npm ci
+4. Execute: npm run dev
+
+Não envie node_modules nem a pasta dist para o repositório. Elas são geradas/instaladas localmente.

@@ -523,9 +523,9 @@
   align-items: center;
 }
 .practice__figure {
+  --fh: min(70svh, 680px);
   position: relative;
-  width: 100%;
-  height: min(70svh, 680px);
+  width: min(100%, calc(var(--fh) * 0.8));
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--c-graphite);
@@ -536,11 +536,19 @@
   inset: 0;
   overflow: hidden;
 }
-.practice__placeholder {
-  height: 100%;
-  transform: scale(var(--zoom, 1.5));
-  transform-origin: 50% 14%;
+/* Foto e marcas gráficas ficam no mesmo bloco com o mesmo zoom: o desenho acompanha o rosto. */
+.practice__zoom {
+  position: absolute;
+  inset: 0;
+  transform: scale(var(--zoom, 1.3));
+  transform-origin: 50% 30%;
   transition: transform 0.25s linear;
+}
+.practice__zoom .practice__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 .practice__svg {
   position: absolute;
@@ -667,9 +675,15 @@
   transform-origin: left;
 }
 @media (max-width: 899px) {
+  /* Mantém sempre o formato 4:5 (sem achatar): ocupa a largura e só reduz se a altura da tela não couber. */
   .practice__figure {
-    height: 34svh;
-    min-height: 13rem;
+    width: min(100%, calc((100svh - 400px) * 0.8));
+  }
+  .practice__list {
+    display: none;
+  }
+  .practice__live {
+    min-height: 0;
   }
   .practice__title {
     font-size: 1.5rem;
@@ -850,14 +864,29 @@
   cursor: ew-resize;
   touch-action: pan-y;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
   background: var(--c-charcoal);
+  /* camada própria: o repaint do arraste fica isolado do resto da página */
+  isolation: isolate;
+  transform: translateZ(0);
 }
 .ba__layer {
   position: absolute;
   inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.ba__layer--after {
+  clip-path: inset(0 0 0 var(--v, 50%));
+  will-change: clip-path;
 }
 .ba__img {
   pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  transform: translateZ(0);
 }
 .ba__empty {
   display: grid;
@@ -885,8 +914,7 @@
   position: absolute;
   top: 1rem;
   padding: 0.35rem 0.7rem;
-  background: rgba(20, 19, 17, 0.7);
-  backdrop-filter: blur(6px);
+  background: rgba(20, 19, 17, 0.82);
   color: var(--c-offwhite);
   font-size: var(--fs-micro);
   font-weight: 600;
@@ -904,6 +932,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
+  left: var(--v, 50%);
   width: 2px;
   background: var(--c-offwhite);
   transform: translateX(-50%);
@@ -924,8 +953,10 @@
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   transition: transform 0.3s var(--ease-out);
 }
-.ba__box:hover .ba__grip {
-  transform: translate(-50%, -50%) scale(1.08);
+@media (hover: hover) and (pointer: fine) {
+  .ba__box:hover .ba__grip {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
 }
 .ba__range {
   position: absolute;

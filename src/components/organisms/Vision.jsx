@@ -10,10 +10,10 @@ export default function Vision() {
       <div className="container vision__grid">
         <div className="vision__media">
           <MaskedImage
-            image={images.stageName}
+            image={images.vision}
             ratio="4 / 5"
             direction="left"
-            focus="62% 46%"
+            focus="50% 20%"
             sizes="(min-width: 900px) 40vw, 100vw"
             caption={vision.caption}
           />

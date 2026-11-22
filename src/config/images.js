@@ -46,6 +46,24 @@ export const images = {
     'Retrato final do comparativo, com camisa cinza em ambiente iluminado',
     '50% 30%',
   ),
+  // Fotografia da seção Visagismo (rolagem narrativa).
+  practiceFace: uploadedImg(
+    'visagismo',
+    'retrato-polo-cinza',
+    1121,
+    1403,
+    'Retrato de homem de cabelo grisalho e barba grisalha, com camisa polo cinza, em ambiente claro',
+    '50% 30%',
+  ),
+  // Fotografia da seção "A visão de David".
+  vision: uploadedImg(
+    'palestras',
+    'david-alves-palestra-cabelinho-pra-tras',
+    952,
+    1269,
+    'David Alves em palestra, com o microfone na mão, ao lado de um telão com a frase "Visagismo não é cabelinho pra trás."',
+    '50% 20%',
+  ),
   stageName: img(
     'palestras',
     'david-alves-palestra-tela-nome',
