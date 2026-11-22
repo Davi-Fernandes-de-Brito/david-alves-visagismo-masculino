@@ -1,4 +1,5 @@
 // Inventário central das fotografias usadas no site.
+const BASE = import.meta.env.BASE_URL;
 // Para trocar uma imagem, substitua os arquivos correspondentes em public/images.
 const img = (folder, name, w, h, alt, focus = '50% 50%') => ({
   name,
@@ -6,8 +7,8 @@ const img = (folder, name, w, h, alt, focus = '50% 50%') => ({
   height: h,
   alt,
   focus,
-  src: `/images/${folder}/${name}-1600.webp`,
-  srcSet: `/images/${folder}/${name}-800.webp 800w, /images/${folder}/${name}-1600.webp 1600w`,
+  src: `${BASE}images/${folder}/${name}-1600.webp`,
+  srcSet: `${BASE}images/${folder}/${name}-800.webp 800w, ${BASE}images/${folder}/${name}-1600.webp 1600w`,
 });
 
 const uploadedImg = (folder, name, w, h, alt, focus = '50% 50%') => ({
@@ -16,8 +17,8 @@ const uploadedImg = (folder, name, w, h, alt, focus = '50% 50%') => ({
   height: h,
   alt,
   focus,
-  src: `/images/${folder}/${name}-full.webp`,
-  srcSet: `/images/${folder}/${name}-800.webp 800w, /images/${folder}/${name}-full.webp ${w}w`,
+  src: `${BASE}images/${folder}/${name}-full.webp`,
+  srcSet: `${BASE}images/${folder}/${name}-800.webp 800w, ${BASE}images/${folder}/${name}-full.webp ${w}w`,
 });
 
 export const images = {

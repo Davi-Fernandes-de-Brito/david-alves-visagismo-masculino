@@ -667,6 +667,10 @@
   transform-origin: left;
 }
 @media (max-width: 899px) {
+  .practice__figure {
+    height: 34svh;
+    min-height: 13rem;
+  }
   .practice__title {
     font-size: 1.5rem;
   }
