@@ -1,0 +1,106 @@
+/* ===== Título de seção ===== */
+.sh {
+  display: grid;
+  gap: 1.5rem;
+}
+.sh__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ===== Imagem com máscara ===== */
+.mimg {
+  position: relative;
+}
+.mimg__box {
+  position: relative;
+  width: 100%;
+}
+.mimg__frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--c-graphite);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.4s var(--ease-in-out);
+}
+.mimg--left .mimg__frame {
+  clip-path: inset(0 100% 0 0);
+}
+.mimg--right .mimg__frame {
+  clip-path: inset(0 0 0 100%);
+}
+.mimg.is-in .mimg__frame {
+  clip-path: inset(0 0 0 0);
+}
+.mimg__par {
+  position: absolute;
+  inset: -5% 0;
+  transform: translate3d(0, calc(var(--py, 0) * -3%), 0);
+}
+.mimg__img {
+  transform: scale(1.22);
+  transition: transform 1.9s var(--ease-out);
+}
+.mimg.is-in .mimg__img {
+  transform: scale(1.02);
+}
+.mimg__cap {
+  margin-top: 0.9rem;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ===== Moldura visual para fotografia ainda não inserida ===== */
+.ph {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(100% 75% at 25% 20%, rgba(169, 135, 98, 0.18), transparent 62%),
+    linear-gradient(145deg, #302720 0%, #211f1c 55%, #171614 100%);
+}
+.ph::after {
+  content: '';
+  position: absolute;
+  inset: 12% 14%;
+  border: 1px solid rgba(215, 200, 183, 0.09);
+  pointer-events: none;
+}
+.ph__corner {
+  position: absolute;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--accent);
+  opacity: 0.72;
+}
+.ph__corner--tl {
+  top: 14px;
+  left: 14px;
+  border-right: 0;
+  border-bottom: 0;
+}
+.ph__corner--br {
+  right: 14px;
+  bottom: 14px;
+  border-left: 0;
+  border-top: 0;
+}
+.theme-light .ph,
+.theme-sand .ph {
+  background:
+    radial-gradient(100% 75% at 25% 20%, rgba(169, 135, 98, 0.16), transparent 62%),
+    linear-gradient(145deg, #e6dccd 0%, #d8cbbb 55%, #cdbba5 100%);
+}
+.theme-light .ph::after,
+.theme-sand .ph::after {
+  border-color: rgba(48, 39, 32, 0.08);
+}
+
