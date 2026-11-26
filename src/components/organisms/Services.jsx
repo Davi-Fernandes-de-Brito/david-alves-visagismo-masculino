@@ -1,10 +1,8 @@
-import { services } from '../../config/content.js';
+import { services, whatsappMessages } from '../../config/content.js';
+import { whatsappProps } from '../../utils/whatsapp.js';
 import SectionHeading from '../molecules/SectionHeading.jsx';
 import Reveal from '../atoms/Reveal.jsx';
 import TextLink from '../atoms/TextLink.jsx';
-
-// Pré-seleciona o serviço no formulário de contato.
-const pick = (id) => window.dispatchEvent(new CustomEvent('da:service', { detail: id }));
 
 function Item({ item, n }) {
   return (
@@ -13,7 +11,7 @@ function Item({ item, n }) {
         <span className="svc__n">{n}</span>
         <h3 className="h3 svc__name">{item.name}</h3>
         <p className="svc__text">{item.text}</p>
-        <TextLink href="#agendar" icon="arrowUpRight" onClick={() => pick(item.id)}>
+        <TextLink icon="arrowUpRight" {...whatsappProps(`services_${item.id}`, whatsappMessages.services)}>
           {services.cta}
         </TextLink>
       </div>

@@ -1,11 +1,12 @@
 import { useRef } from 'react';
-import { hero } from '../../config/content.js';
+import { hero, whatsappMessages } from '../../config/content.js';
 import { images } from '../../config/images.js';
 import { site } from '../../config/site.js';
 import Picture from '../atoms/Picture.jsx';
 import SplitWords from '../atoms/SplitWords.jsx';
 import Button from '../atoms/Button.jsx';
 import { useParallax } from '../../hooks/useMotion.js';
+import { whatsappProps } from '../../utils/whatsapp.js';
 
 export default function Hero({ ready }) {
   const frameRef = useRef(null);
@@ -45,7 +46,7 @@ export default function Hero({ ready }) {
 
         <div className="hero__cta">
           <Button href={hero.ctaPrimary.href}>{hero.ctaPrimary.label}</Button>
-          <Button href={hero.ctaSecondary.href} variant="ghost" icon={null}>
+          <Button {...whatsappProps('hero', whatsappMessages.hero)} variant="ghost" icon={null}>
             {hero.ctaSecondary.label}
           </Button>
         </div>

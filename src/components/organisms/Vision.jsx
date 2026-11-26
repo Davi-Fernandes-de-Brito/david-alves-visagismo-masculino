@@ -3,6 +3,8 @@ import { images } from '../../config/images.js';
 import SectionHeading from '../molecules/SectionHeading.jsx';
 import MaskedImage from '../molecules/MaskedImage.jsx';
 import Reveal from '../atoms/Reveal.jsx';
+import WhatsAppCta from '../molecules/WhatsAppCta.jsx';
+import { whatsappMessages } from '../../config/content.js';
 
 export default function Vision() {
   return (
@@ -32,6 +34,7 @@ export default function Vision() {
               <p key={p}>{p}</p>
             ))}
           </Reveal>
+          <WhatsAppCta source="vision" message={whatsappMessages.vision} delay={200} />
         </div>
       </div>
     </section>

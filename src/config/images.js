@@ -84,4 +84,19 @@ export const images = {
 };
 
 // Adicione aqui apenas fotografias com nome descritivo, contexto e autorização de uso confirmados.
-export const portraits = [];
+const work = (n, alt, focus) => ({
+  name: `trabalho-${n}`,
+  width: 1600,
+  height: 2000,
+  alt,
+  focus,
+  src: `${BASE}images/trabalhos/trabalho-${n}-1600.webp`,
+  srcSet: `${BASE}images/trabalhos/trabalho-${n}-800.webp 800w, ${BASE}images/trabalhos/trabalho-${n}-1600.webp 1600w`,
+});
+
+export const portraits = [
+  { ...work('01', 'Retrato de homem de cabelo escuro e barba cheia, com camisa verde-acinzentada, após atendimento de visagismo', '50% 28%'), caption: 'Barba e cabelo alinhados' },
+  { ...work('02', 'Retrato de homem de cabelo grisalho curto e barba aparada, com camisa polo azul-marinho', '50% 28%'), caption: 'Grisalho com naturalidade' },
+  { ...work('03', 'Retrato sorridente de homem de cabelo penteado para trás e barba curta, com camisa polo clara', '50% 30%'), caption: 'Estrutura e acabamento' },
+  { ...work('04', 'David Alves finalizando o cabelo de um cliente com spray, em estúdio com espelhos iluminados', '45% 35%'), caption: 'Bastidores do atendimento' },
+];

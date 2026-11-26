@@ -1,5 +1,10 @@
 import HomePage from './pages/HomePage.jsx';
+import ErrorBoundary from './components/organisms/ErrorBoundary.jsx';
 
 export default function App() {
-  return <HomePage />;
+  return (
+    <ErrorBoundary>
+      <HomePage />
+    </ErrorBoundary>
+  );
 }

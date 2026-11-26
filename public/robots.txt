@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://davi-fernandes-de-brito.github.io/david-alves/sitemap.xml

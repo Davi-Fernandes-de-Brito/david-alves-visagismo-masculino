@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
-import { practice } from '../../config/content.js';
+import { practice, whatsappMessages } from '../../config/content.js';
 import { images } from '../../config/images.js';
 import Picture from '../atoms/Picture.jsx';
+import WhatsAppCta from '../molecules/WhatsAppCta.jsx';
 import { useScrollLink } from '../../hooks/useMotion.js';
 
 // Rolagem narrativa: a fotografia fica fixa e as cinco decisões evoluem ao lado.
@@ -89,6 +90,9 @@ export default function Practice() {
             <span style={{ transform: `scaleX(${p})` }} />
           </div>
         </div>
+      </div>
+      <div className="container practice__cta">
+        <WhatsAppCta source="practice" message={whatsappMessages.practice} variant="ghost" />
       </div>
     </section>
   );

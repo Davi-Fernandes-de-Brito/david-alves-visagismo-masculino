@@ -2,6 +2,8 @@ import Header from '../organisms/Header.jsx';
 import Footer from '../organisms/Footer.jsx';
 import ScrollProgress from '../organisms/ScrollProgress.jsx';
 import SideIndex from '../organisms/SideIndex.jsx';
+import WhatsAppFloat from '../organisms/WhatsAppFloat.jsx';
+import CookieConsent from '../organisms/CookieConsent.jsx';
 
 // Estrutura da página: link de pulo, cabeçalho, conteúdo, rodapé e indicadores.
 export default function LandingTemplate({ ready, children }) {
@@ -15,6 +17,8 @@ export default function LandingTemplate({ ready, children }) {
       <SideIndex />
       <main id="conteudo-principal">{children}</main>
       <Footer />
+      <WhatsAppFloat ready={ready} />
+      <CookieConsent />
     </>
   );
 }

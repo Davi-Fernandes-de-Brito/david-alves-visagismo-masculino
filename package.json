@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "images": "node scripts/prepare-images.cjs",
-    "build:local": "node scripts/build-local.mjs"
+    "prebuild": "node scripts/generate-seo.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

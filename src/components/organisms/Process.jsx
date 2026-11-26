@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { process as proc } from '../../config/content.js';
 import { images } from '../../config/images.js';
+import WhatsAppCta from '../molecules/WhatsAppCta.jsx';
+import { whatsappMessages } from '../../config/content.js';
 import SectionHeading from '../molecules/SectionHeading.jsx';
 import MaskedImage from '../molecules/MaskedImage.jsx';
 import { useScrollLink, useInView } from '../../hooks/useMotion.js';
@@ -45,6 +47,7 @@ export default function Process() {
               ))}
             </ol>
           </div>
+          <WhatsAppCta source="process" message={whatsappMessages.process} />
         </div>
       </div>
     </section>
