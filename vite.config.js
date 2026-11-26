@@ -1,14 +1,11 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-
-const DEFAULT_SITE_URL = 'https://davi-fernandes-de-brito.github.io/david-alves';
+import { resolveSite } from './scripts/site-env.mjs';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const productionDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || env.VITE_VERCEL_PROJECT_PRODUCTION_URL || '';
-  const deploymentDomain = process.env.VERCEL_URL || '';
-  const siteUrl = (env.VITE_SITE_URL || process.env.VITE_SITE_URL || (productionDomain ? `https://${productionDomain}` : '') || (deploymentDomain ? `https://${deploymentDomain}` : DEFAULT_SITE_URL)).replace(/\/+$/, '');
-  const base = process.env.GITHUB_PAGES === 'true' ? '/david-alves/' : '/';
+  // Caminho base e URL do site são detectados automaticamente (GitHub Pages, Vercel ou local).
+  const { base, siteUrl, productionDomain } = resolveSite({ ...env, ...process.env });
   const businessPhone = (env.VITE_WHATSAPP_NUMBER || process.env.VITE_WHATSAPP_NUMBER || '558587102722').replace(/[^0-9]/g, '');
 
   const siteMetadataPlugin = {

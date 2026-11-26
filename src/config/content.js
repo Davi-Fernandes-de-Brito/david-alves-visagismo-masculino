@@ -91,10 +91,10 @@ export const content = {
   // poster = imagem de capa dentro de public/ (mostrada antes do vídeo carregar).
   reels: [
     { url: 'https://www.instagram.com/reel/DbsuQlIx_q6/', video: 'videos/reel-1.mp4', poster: 'images/reels/reel-1.jpg' },
-    { url: 'https://www.instagram.com/reels/DeatCAvRwQg/', video: 'videos/reel-2.mp4', poster: 'images/reels/reel-2.jpg' },
+    { url: 'https://www.instagram.com/reel/DeatCAvRwQg/', video: 'videos/reel-2.mp4', poster: 'images/reels/reel-2.jpg' },
     { url: 'https://www.instagram.com/reel/DdugiR1xipO/', video: 'videos/reel-3.mp4', poster: 'images/reels/reel-3.jpg' },
-    { url: 'https://www.instagram.com/reels/DdbyXV-R0fn/', video: 'videos/reel-4.mp4', poster: 'images/reels/reel-4.jpg' },
-    { url: 'https://www.instagram.com/reels/Dav-yuvxt0h/', video: 'videos/reel-5.mp4', poster: 'images/reels/reel-5.jpg' },
+    { url: 'https://www.instagram.com/reel/DdbyXV-R0fn/', video: 'videos/reel-4.mp4', poster: 'images/reels/reel-4.jpg' },
+    { url: 'https://www.instagram.com/reel/Dav-yuvxt0h/', video: 'videos/reel-5.mp4', poster: 'images/reels/reel-5.jpg' },
   ],
 };
 

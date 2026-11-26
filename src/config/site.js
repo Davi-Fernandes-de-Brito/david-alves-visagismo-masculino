@@ -1,6 +1,6 @@
 // Dados gerais do site e canais de contato.
 const env = import.meta.env;
-const fallbackSiteUrl = 'https://davi-fernandes-de-brito.github.io/david-alves';
+const fallbackSiteUrl = 'https://davi-fernandes-de-brito.github.io/david-alves-visagismo-masculino';
 
 const normalizePhone = (value) => (value || '').replace(/\D/g, '') || null;
 const address = 'R. Padre Valdevino, 2546 - Aldeota, Fortaleza - CE, 60135-041, Brasil';

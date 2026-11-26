@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { resolveSite } from './site-env.mjs';
 
 function readEnvFile(file) {
   try {
@@ -18,11 +19,7 @@ function readEnvFile(file) {
 
 const root = process.cwd();
 const fileEnv = { ...readEnvFile(path.join(root, '.env')), ...readEnvFile(path.join(root, '.env.production')) };
-const productionDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL || fileEnv.VITE_VERCEL_PROJECT_PRODUCTION_URL || '';
-const deploymentDomain = process.env.VERCEL_URL || '';
-const configuredUrl = process.env.VITE_SITE_URL || fileEnv.VITE_SITE_URL || (productionDomain ? `https://${productionDomain}` : '');
-const siteUrl = (configuredUrl || (deploymentDomain ? `https://${deploymentDomain}` : 'https://davi-fernandes-de-brito.github.io/david-alves')).replace(/\/+$/, '');
-const basePath = process.env.GITHUB_PAGES === 'true' ? '/david-alves/' : '/';
+const { base: basePath, siteUrl } = resolveSite({ ...fileEnv, ...process.env });
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${siteUrl}/</loc>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n  <url>\n    <loc>${siteUrl}/privacidade.html</loc>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>\n</urlset>\n`;
 const robots = `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`;
 const notFound = `<!doctype html>

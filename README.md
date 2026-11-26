@@ -62,6 +62,17 @@ O resultado será criado na pasta `dist/`.
 
 Não coloque senhas, tokens privados ou chaves de serviço no código. Variáveis `VITE_` são incorporadas ao bundle do navegador e devem conter apenas valores públicos.
 
+## Publicar no GitHub Pages
+
+O projeto detecta sozinho o caminho do site. No GitHub Actions ele usa o nome do repositório (por exemplo, `https://usuario.github.io/nome-do-repositorio/`), então não é preciso editar nenhum arquivo ao trocar o nome do repositório. Se a tela ficar preta, quase sempre é caminho errado dos arquivos (erro 404 em `/assets/...`): confira se o deploy foi feito com este workflow.
+
+1. Envie o conteúdo da pasta `david-alves-site` (incluindo a pasta oculta `.github`) para o repositório, na branch `main`.
+2. No GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. A aba **Actions** executa o workflow `Deploy Vite site to GitHub Pages` a cada envio para `main`. Quando ficar verde, o site está no ar.
+4. Se usar domínio próprio, defina `VITE_BASE_PATH=/` e `VITE_SITE_URL=https://seudominio.com.br` (em **Settings → Secrets and variables → Actions → Variables**, e repasse no workflow, ou em `.env.production`).
+
+O GitHub Pages não aplica os cabeçalhos do `vercel.json`; se não for usar a Vercel, o arquivo pode ser apagado.
+
 ## Publicar na Vercel
 
 1. Extraia o ZIP e envie o conteúdo da pasta `david-alves-site` para o repositório GitHub que será ligado à Vercel. Não envie `node_modules`, `dist` ou `.env`.
