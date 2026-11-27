@@ -1,67 +1,171 @@
-# David Alves — Visagismo masculino
 
-Site institucional desenvolvido com React e Vite. O projeto separa conteúdo, componentes, estilos e fotografias para facilitar a manutenção. A publicação prevista é pelo **GitHub Pages**, usando GitHub Actions.
+<div align="center">
+
+  <img src="public/og-david-alves.jpg" alt="David Alves — Visagismo Masculino" width="100%">
+
+  # David Alves — Visagismo Masculino
+
+  **Uma experiência digital desenvolvida para valorizar a identidade, apresentar o trabalho e aproximar clientes.**
+
+  ![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
+  ![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-ES2020-F7DF1E?logo=javascript&logoColor=black)
+  ![Responsive](https://img.shields.io/badge/Design-Responsive-success)
+
+</div>
+
+---
+
+## Sobre o projeto
+
+O projeto consiste em um site institucional desenvolvido para **David Alves**, profissional especializado em visagismo masculino.
+
+A proposta é construir uma presença digital que transmita profissionalismo, sofisticação e identidade, apresentando os serviços, trabalhos realizados e a filosofia profissional de maneira visual e intuitiva.
+
+A interface foi planejada para proporcionar uma experiência consistente em diferentes dispositivos, combinando elementos visuais, animações e navegação fluida.
+
+## Funcionalidades
+
+- **Apresentação institucional:** introdução à identidade e à filosofia profissional.
+- **Visagismo:** explicação da abordagem e dos conceitos do trabalho.
+- **Portfólio:** apresentação de trabalhos e resultados.
+- **Antes e depois:** comparação visual dos resultados.
+- **Serviços:** apresentação das modalidades de atendimento.
+- **Processo de atendimento:** etapas da experiência do cliente.
+- **Conteúdo audiovisual:** seção com vídeos e publicações.
+- **Instagram:** integração com o perfil profissional.
+- **WhatsApp:** botões de contato com mensagens contextualizadas.
+- **Formulário de atendimento:** coleta de informações e encaminhamento para o WhatsApp.
+- **Design responsivo:** adaptação para computadores, tablets e smartphones.
+
+## Experiência visual
+
+O projeto utiliza uma identidade visual cuidadosamente construída, com atenção especial à tipografia, composição, espaçamento e hierarquia das informações.
+
+Entre os recursos implementados estão:
+
+- Animações de entrada e transições.
+- Revelação progressiva de elementos durante a navegação.
+- Efeitos visuais associados à rolagem.
+- Microinterações em botões e elementos interativos.
+- Apresentação dinâmica de imagens e vídeos.
+- Indicadores de navegação e progresso da página.
+
+## Tecnologias utilizadas
+
+| Tecnologia | Aplicação |
+|---|---|
+| React 19 | Construção da interface |
+| Vite 6 | Desenvolvimento e compilação |
+| JavaScript | Lógica e interatividade |
+| CSS3 | Estilização e animações |
+| HTML5 | Estrutura e semântica |
+
+## Estrutura do projeto
+
+```text
+david-alves-site/
+│
+├── public/
+│   ├── images/
+│   ├── videos/
+│   ├── favicon.svg
+│   ├── privacidade.html
+│   └── og-david-alves.jpg
+│
+├── src/
+│   ├── components/
+│   │   ├── atoms/
+│   │   ├── molecules/
+│   │   ├── organisms/
+│   │   └── templates/
+│   │
+│   ├── config/
+│   ├── hooks/
+│   ├── pages/
+│   ├── styles/
+│   ├── utils/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── scripts/
+├── index.html
+├── package.json
+└── vite.config.js
+```
 
 ## Executar localmente
 
+É necessário ter Node.js e npm instalados.
+
+Clone o repositório:
+
+```bash
+git clone URL_DO_REPOSITORIO
+```
+
+Acesse a pasta:
+
+```bash
+cd david-alves-site
+```
+
+Instale as dependências:
+
 ```bash
 npm ci
-cp .env.example .env
+```
+
+Inicie o ambiente de desenvolvimento:
+
+```bash
 npm run dev
 ```
 
-Para gerar e conferir a versão de produção:
+## Compilação de produção
+
+Para gerar a versão otimizada:
 
 ```bash
 npm run build
+```
+
+Os arquivos finais serão disponibilizados na pasta `dist/`.
+
+Para visualizar a versão de produção localmente:
+
+```bash
 npm run preview
 ```
 
-O resultado será criado na pasta `dist/`.
+## Configuração
 
-## Antes da publicação
+As principais informações do site são organizadas em arquivos específicos:
 
-- **WhatsApp:** o número oficial é +55 85 8710-2722 e já está configurado como padrão. Para substituí-lo, use `VITE_WHATSAPP_NUMBER` e, opcionalmente, `VITE_WHATSAPP_DISPLAY`.
-- **URL canônica:** `VITE_SITE_URL` permite definir o domínio público usado nos metadados, no sitemap e no robots.txt. No GitHub Actions, o endereço do GitHub Pages é detectado automaticamente.
-- **Google Search Console (opcional):** para verificar o domínio por meta tag, defina `VITE_GOOGLE_SITE_VERIFICATION` com o token fornecido pelo Search Console. Depois envie o sitemap do domínio publicado.
-- **Domínio próprio:** configure `VITE_BASE_PATH=/` e `VITE_SITE_URL=https://seudominio.com.br` nas variáveis do workflow.
-
-Não coloque senhas, tokens privados ou chaves de serviço no código. Variáveis `VITE_` são incorporadas ao bundle do navegador e devem conter apenas valores públicos.
-
-## Publicar no GitHub Pages
-
-1. Envie o conteúdo da pasta `david-alves-site` (incluindo a pasta oculta `.github`) para o repositório, na branch `main`.
-2. No GitHub, abra **Settings → Pages → Build and deployment** e selecione **GitHub Actions** como origem.
-3. A aba **Actions** executa o workflow `Deploy Vite site to GitHub Pages` a cada envio para `main`.
-4. Quando a execução ficar verde, confira a página inicial, `/privacidade.html`, `/404.html`, `/robots.txt` e `/sitemap.xml`.
-
-## Reels (seção Conteúdo)
-
-Os cinco vídeos ficam na seção **Conteúdo**. São arquivos locais, sem áudio e em loop. Um clique pausa ou retoma; dois cliques ou dois toques abrem a publicação original em uma nova aba. Com o mouse, os cards recebem uma inclinação discreta.
-
-Para alterar os links, edite `content.reels` em `src/config/content.js`. Para trocar um vídeo, coloque o MP4 em `public/videos/`, a capa em `public/images/reels/` e atualize os campos `video` e `poster`. Os caminhos são relativos à pasta `public`.
-
-## WhatsApp e formulário
-
-Os botões do site abrem o WhatsApp com mensagens contextualizadas, definidas em `whatsappMessages` (`src/config/content.js`). O formulário solicita nome, número de WhatsApp com DDD, serviço de interesse e uma mensagem opcional. O número informado é validado, mas não é repetido no texto enviado, pois o próprio WhatsApp identifica quem iniciou a conversa.
-
-A mensagem é apenas preparada no navegador. A pessoa pode revisá-la e precisa confirmar o envio dentro do WhatsApp. O site não mantém banco de dados de contatos nem envia os dados para um servidor.
-
-## Política de Privacidade
-
-O texto-fonte fica em `scripts/privacidade.template.html`. Durante o build, `scripts/generate-seo.mjs` gera `public/privacidade.html`, além de `sitemap.xml`, `robots.txt` e `404.html`.
-
-## Onde editar
-
-| O que deseja alterar | Arquivo / pasta |
+| Arquivo | Responsabilidade |
 |---|---|
-| Textos das seções e mensagens do WhatsApp | `src/config/content.js` |
-| Nome, Instagram, WhatsApp, endereço e horários | `src/config/site.js` |
-| Imagens e textos alternativos | `src/config/images.js` |
-| Fotografias do site | `public/images/` |
-| Vídeos da seção Conteúdo | `public/videos/` |
-| Cores, fontes e espaçamentos | `src/styles/tokens.css` |
-| Aparência e animações | `src/styles/organisms.css`, `src/styles/features.css` e `src/styles/atoms.css` |
-| Ordem das seções | `src/pages/HomePage.jsx` |
-| Formulário e horários | `src/components/organisms/Booking.jsx` e `src/config/site.js` |
-| Política de Privacidade | `scripts/privacidade.template.html` |
+| `src/config/content.js` | Textos, seções e mensagens do WhatsApp |
+| `src/config/site.js` | Informações institucionais e contato |
+| `src/config/images.js` | Imagens e descrições |
+| `src/config/motion.js` | Configurações de animação |
+| `src/styles/tokens.css` | Identidade visual e variáveis de estilo |
+
+## Privacidade e comunicação
+
+O formulário de atendimento utiliza o WhatsApp como canal de comunicação.
+
+As informações preenchidas são organizadas em uma mensagem e encaminhadas para o aplicativo, onde o visitante pode revisar e confirmar o envio.
+
+O projeto não utiliza banco de dados para armazenar os contatos enviados pelo formulário e não possui integração com Google Analytics.
+
+Também está disponível uma página dedicada à Política de Privacidade.
+
+---
+
+<div align="center">
+
+  **David Alves — Visagismo Masculino**
+
+  Projeto de presença digital e apresentação profissional.
+
+</div>
