@@ -1,7 +1,6 @@
 import { nav, site } from '../../config/site.js';
 import TextLink from '../atoms/TextLink.jsx';
 import Icon from '../atoms/Icon.jsx';
-import { analyticsEnabled, trackEvent } from '../../services/analytics.js';
 import { whatsappMessages } from '../../config/content.js';
 import { whatsappProps } from '../../utils/whatsapp.js';
 
@@ -24,7 +23,7 @@ export default function Footer() {
 
         <div className="footer__contact">
           <p className="footer__label">Contato</p>
-          <TextLink href={site.instagram.url} external icon="arrowUpRight" onClick={() => trackEvent('instagram_profile_open', { source: 'footer' })}>
+          <TextLink href={site.instagram.url} external icon="arrowUpRight">
             <Icon name="instagram" size={16} /> {site.instagram.handle}
           </TextLink>
           <TextLink icon="arrowUpRight" {...whatsappProps('footer', whatsappMessages.contact)}>
@@ -45,7 +44,6 @@ export default function Footer() {
         </small>
         <div className="footer__legal-links">
           <a href={`${import.meta.env.BASE_URL}privacidade.html`}>Política de Privacidade</a>
-          {analyticsEnabled && <button type="button" onClick={() => window.dispatchEvent(new Event('da:privacy-settings'))}>Preferências de métricas</button>}
           <a href="#inicio" className="footer__top">Voltar ao topo</a>
         </div>
       </div>

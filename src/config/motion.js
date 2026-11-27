@@ -1,6 +1,6 @@
 // Tokens de movimento e breakpoints em JS (os mesmos valores existem em styles/tokens.css).
 export const ease = {
-  out: 'cubic-bezier(0.22, 1, 0.36, 1)',
+  out: 'cubic-bezier(0.16, 1, 0.3, 1)',
   inOut: 'cubic-bezier(0.65, 0, 0.35, 1)',
 };
 

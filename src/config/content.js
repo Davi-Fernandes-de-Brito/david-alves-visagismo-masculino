@@ -10,16 +10,16 @@ export const hero = {
 
 // Mensagens iniciais enviadas ao WhatsApp, de acordo com a seção do botão.
 export const whatsappMessages = {
-  hero: 'Olá, David! Acessei seu site e gostaria de solicitar um atendimento. Poderia me passar mais informações?',
-  header: 'Olá, David! Acessei seu site e gostaria de solicitar um atendimento.',
-  floating: 'Olá, David! Acessei seu site e gostaria de saber mais sobre seus serviços.',
-  services: 'Olá, David! Gostaria de saber mais sobre os seus serviços.',
-  vision: 'Olá, David! Li sobre a sua visão de visagismo no site e gostaria de solicitar um atendimento.',
-  practice: 'Olá, David! Conheci o visagismo na prática pelo seu site e gostaria de solicitar um atendimento.',
-  works: 'Olá, David! Vi seus trabalhos no site e gostaria de conversar sobre um atendimento.',
-  process: 'Olá, David! Vi como funciona o atendimento no seu site e gostaria de solicitar um atendimento.',
-  content: 'Olá, David! Acompanhei seus vídeos no site e gostaria de solicitar um atendimento.',
-  contact: 'Olá, David! Gostaria de entrar em contato com você.',
+  hero: 'Olá, David! Conheci seu trabalho pelo site e gostaria de entender melhor como funciona o atendimento de visagismo.',
+  header: 'Olá, David! Gostaria de conversar sobre um atendimento de visagismo. Pode me orientar sobre os próximos passos?',
+  floating: 'Olá, David! Estou conhecendo seu trabalho e gostaria de tirar algumas dúvidas sobre o atendimento.',
+  services: 'Olá, David! Tenho interesse em conhecer melhor os serviços de visagismo. Poderia me passar mais informações?',
+  vision: 'Olá, David! Li sobre sua proposta de visagismo e gostaria de conversar sobre como ela pode me ajudar a construir minha imagem.',
+  practice: 'Olá, David! Gostaria de entender melhor como funciona a análise de visagismo e saber como agendar um atendimento.',
+  works: 'Olá, David! Vi os trabalhos apresentados no site e gostaria de conversar sobre uma possível transformação.',
+  process: 'Olá, David! Conheci as etapas do atendimento pelo site e gostaria de saber como posso começar.',
+  content: 'Olá, David! Conheci seus conteúdos pelo site e gostaria de receber mais informações sobre o atendimento.',
+  contact: 'Olá, David! Tudo bem? Gostaria de conversar sobre um atendimento de visagismo. Como podemos começar?',
 };
 
 export const vision = {
@@ -105,5 +105,5 @@ export const booking = {
   button: 'Solicitar atendimento',
   direct: 'Falar direto no WhatsApp',
   infoTitle: 'Onde me encontrar',
-  fields: { name: 'Nome', contact: 'Contato (WhatsApp ou e-mail)', service: 'Serviço de interesse', message: 'Mensagem' },
+  fields: { name: 'Nome', contact: 'Seu WhatsApp', service: 'Serviço de interesse', message: 'Mensagem (opcional)' },
 };

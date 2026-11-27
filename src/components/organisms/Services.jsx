@@ -4,9 +4,9 @@ import SectionHeading from '../molecules/SectionHeading.jsx';
 import Reveal from '../atoms/Reveal.jsx';
 import TextLink from '../atoms/TextLink.jsx';
 
-function Item({ item, n }) {
+function Item({ item, n, index }) {
   return (
-    <Reveal as="article" className="svc svc--lead">
+    <Reveal as="article" className="svc svc--lead" delay={index * 110}>
       <div className="svc__body">
         <span className="svc__n">{n}</span>
         <h3 className="h3 svc__name">{item.name}</h3>
@@ -32,7 +32,7 @@ export default function Services() {
 
         <div className="services__grid">
           {visibleServices.map((item, index) => (
-            <Item key={item.id} item={item} n={String(index + 1).padStart(2, '0')} />
+            <Item key={item.id} item={item} n={String(index + 1).padStart(2, '0')} index={index} />
           ))}
         </div>
       </div>

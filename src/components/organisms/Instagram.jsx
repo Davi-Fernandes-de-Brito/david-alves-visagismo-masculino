@@ -1,6 +1,5 @@
 import { content, whatsappMessages } from '../../config/content.js';
 import { site } from '../../config/site.js';
-import { trackEvent } from '../../services/analytics.js';
 import SectionHeading from '../molecules/SectionHeading.jsx';
 import Reveal from '../atoms/Reveal.jsx';
 import Button from '../atoms/Button.jsx';
@@ -10,7 +9,6 @@ import Reels from './Reels.jsx';
 
 // Seção Conteúdo: reels em vídeo e link para o perfil oficial.
 export default function Instagram() {
-  const openInstagram = () => trackEvent('instagram_profile_open', { source: 'content_section' });
 
   return (
     <section id="conteudo" className="section ig theme-light" aria-labelledby="conteudo-title">
@@ -20,7 +18,7 @@ export default function Instagram() {
           <span id="conteudo-title" className="sr-only">{content.title}</span>
           <Reveal delay={120} className="ig__side">
             <p className="lead">{content.text}</p>
-            <Button href={site.instagram.url} icon="arrowUpRight" target="_blank" rel="noopener noreferrer" onClick={openInstagram}>
+            <Button href={site.instagram.url} icon="arrowUpRight" target="_blank" rel="noopener noreferrer">
               {content.cta} {site.instagram.handle}
             </Button>
           </Reveal>
@@ -31,7 +29,7 @@ export default function Instagram() {
 
       <div className="container">
         <Reveal delay={80}>
-          <a className="ig__handle" href={site.instagram.url} target="_blank" rel="noopener noreferrer" onClick={openInstagram}>
+          <a className="ig__handle" href={site.instagram.url} target="_blank" rel="noopener noreferrer">
             <span className="ig__handle-label"><Icon name="instagram" size={18} /> {content.handleLabel}</span>
             <span className="ig__handle-name">{site.instagram.handle}</span>
             <span className="ig__handle-arrow" aria-hidden="true"><Icon name="arrowUpRight" size={34} /></span>

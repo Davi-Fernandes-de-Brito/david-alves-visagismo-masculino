@@ -147,7 +147,7 @@
 .wa-float {
   position: fixed; z-index: 140;
   right: max(1rem, env(safe-area-inset-right));
-  bottom: calc(max(1rem, env(safe-area-inset-bottom)) + var(--consent-h, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom));
   display: flex; align-items: center; gap: 0.75rem;
   opacity: 0; transform: translateY(18px) scale(0.9); pointer-events: none;
 }
@@ -193,10 +193,30 @@ body.is-locked .wa-float { visibility: hidden; }
 
 /* ===================== Refinamentos de design e movimento ===================== */
 
-/* Entrada ao rolar: deslize com leve desfoque, mais suave e consistente */
-.reveal { transition: opacity 1s var(--ease-out) var(--delay, 0ms), transform 1.1s var(--ease-out) var(--delay, 0ms), filter 1s var(--ease-out) var(--delay, 0ms); }
-.reveal--up:not(.is-in) { transform: translateY(34px); filter: blur(5px); }
-.reveal--fade:not(.is-in) { filter: blur(4px); }
+/* Movimento editorial: entradas suaves, com profundidade discreta e sem exageros. */
+.reveal {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+  backface-visibility: hidden;
+  transition:
+    opacity 760ms var(--ease-out) var(--delay, 0ms),
+    transform 980ms var(--ease-out) var(--delay, 0ms),
+    filter 820ms var(--ease-out) var(--delay, 0ms);
+}
+.reveal--up:not(.is-in) {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0) scale(.992);
+  filter: blur(4px);
+}
+.reveal--fade:not(.is-in) {
+  opacity: 0;
+  filter: blur(5px);
+}
+.reveal--line:not(.is-in) {
+  opacity: 0;
+  transform: translate3d(-14px, 0, 0);
+}
 
 /* Seleção de texto e foco na identidade do site */
 ::selection { background: var(--c-bronze); color: var(--c-charcoal); }
@@ -249,4 +269,49 @@ body.is-locked .wa-float { visibility: hidden; }
   .reveal--up:not(.is-in), .reveal--fade:not(.is-in), .reels__reveal.reveal--up:not(.is-in), .section-cta.reveal--up:not(.is-in) { filter: none; transform: none; }
   .reel, .reel:hover { transform: none; }
   .btn--primary::after { display: none; }
+}
+
+
+/* Refinamento de movimento: feedback tátil, profundidade e ritmo entre elementos. */
+@media (hover: hover) and (pointer: fine) {
+  .gallery__photo { transform: translateZ(0); }
+  .gallery__item:hover .gallery__img { transform: scale(1.055); }
+  .svc:hover { border-color: var(--accent); }
+  .svc__n { transition: transform 650ms var(--ease-out), color 450ms var(--ease-out); }
+  .svc:hover .svc__n { transform: translateX(5px); color: var(--fg); }
+  .ig__handle:hover { padding-inline: .45rem; }
+}
+
+.services__grid > .reveal { transition-delay: var(--delay, 0ms); }
+.proc__step {
+  transform: translate3d(-8px, 0, 0);
+  transition: opacity 700ms var(--ease-out), transform 850ms var(--ease-out);
+}
+.proc__step.is-in { transform: translate3d(0, 0, 0); }
+.proc__n { transition: color 500ms var(--ease-out), transform 700ms var(--ease-out); }
+.proc__step.is-in .proc__n { transform: translateX(2px); }
+.form__status p { animation: status-in 500ms var(--ease-out) both; }
+@keyframes status-in {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--up:not(.is-in),
+  .reveal--fade:not(.is-in),
+  .reveal--line:not(.is-in),
+  .split__word,
+  .proc__step,
+  .proc__n,
+  .form__status p,
+  .svc__n,
+  .gallery__img,
+  .ig__handle {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }

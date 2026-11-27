@@ -1202,8 +1202,7 @@
   margin-top: .2rem;
   accent-color: var(--c-bronze);
 }
-.form__consent a,
-.consent__copy a {
+.form__consent a {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -1211,40 +1210,6 @@
 .form__consent .form__note {
   max-width: 38em;
   margin: 0 0 0 1.8rem;
-}
-.consent {
-  position: fixed;
-  z-index: 250;
-  right: max(1rem, env(safe-area-inset-right));
-  bottom: max(1rem, env(safe-area-inset-bottom));
-  left: max(1rem, env(safe-area-inset-left));
-  display: grid;
-  gap: 1.2rem;
-  max-width: 900px;
-  margin-inline: auto;
-  padding: 1.2rem 1.3rem;
-  border: 1px solid rgba(212,179,139,.55);
-  background: #201d19;
-  color: #f3efe8;
-  box-shadow: 0 18px 60px rgba(0,0,0,.35);
-}
-.consent__copy { display: grid; gap: .45rem; }
-.consent__copy strong { font: 500 1.3rem/1.2 var(--f-serif); }
-.consent__copy p { color: #c9c0b4; font-size: .83rem; line-height: 1.5; }
-.consent__actions { display: flex; gap: .7rem; align-items: center; flex-wrap: wrap; }
-.consent__actions button {
-  min-height: 42px;
-  padding: .65rem 1rem;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.consent__reject { border: 1px solid rgba(243,239,232,.35); color: #f3efe8; }
-.consent__accept { background: #d4b38b; color: #141311; }
-.consent__actions button:hover { filter: brightness(1.08); }
-@media (min-width: 700px) {
-  .consent { grid-template-columns: 1fr auto; align-items: center; padding: 1.4rem 1.6rem; }
 }
 
 /* ================= Erros recuperáveis ================= */
@@ -1263,16 +1228,10 @@
 .error-screen__actions { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
 .error-screen__actions > a { color: var(--c-bronze); text-decoration: underline; text-underline-offset: 4px; }
 .error-screen .btn:disabled { opacity: .55; cursor: wait; }
-@media (max-width: 520px) {
-  .consent__actions { display: grid; grid-template-columns: 1fr 1fr; }
-}
-
 .footer__legal-links { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
 .footer__legal-links a { text-underline-offset: 3px; }
 .footer__legal-links a:hover { color: var(--fg); text-decoration: underline; }
 
-.footer__legal-links button { background: transparent; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; text-underline-offset: 3px; }
-.footer__legal-links button:hover { color: var(--fg); text-decoration: underline; }
 
 
 /* ================= Endereço e horários ================= */

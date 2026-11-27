@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { content } from '../../config/content.js';
-import { trackEvent } from '../../services/analytics.js';
 import Reveal from '../atoms/Reveal.jsx';
 
 const BASE = import.meta.env.BASE_URL;
@@ -47,7 +46,6 @@ function ReelCard({ reel, index, total, load }) {
   }, [play]);
 
   const openReel = () => {
-    trackEvent('instagram_reel_open', { reel: index + 1 });
     window.open(reel.url, '_blank', 'noopener,noreferrer');
   };
 
@@ -152,7 +150,7 @@ function ReelCard({ reel, index, total, load }) {
           </span>
           <span className="reel__icon" aria-hidden="true">{REEL_ICON}</span>
         </div>
-        <a className="reel__open" href={reel.url} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('instagram_reel_open', { reel: index + 1 })}>
+        <a className="reel__open" href={reel.url} target="_blank" rel="noopener noreferrer">
           Abrir vídeo {index + 1} no Instagram
         </a>
       </Reveal>

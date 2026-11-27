@@ -13,7 +13,7 @@ export const site = {
   description:
     'Visagismo masculino com uma abordagem que considera características individuais, intenção e identidade na construção da imagem.',
   year: new Date().getFullYear(),
-  url: (env.VITE_SITE_URL || (env.VITE_VERCEL_PROJECT_PRODUCTION_URL ? `https://${env.VITE_VERCEL_PROJECT_PRODUCTION_URL}` : fallbackSiteUrl)).replace(/\/+$/, ''),
+  url: (env.VITE_SITE_URL || fallbackSiteUrl).replace(/\/+$/, ''),
   instagram: { handle: '@davidalvess_', url: 'https://www.instagram.com/davidalvess_/' },
   contact: {
     whatsapp: whatsappNumber,

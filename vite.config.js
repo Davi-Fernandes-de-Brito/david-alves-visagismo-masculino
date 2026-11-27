@@ -4,8 +4,7 @@ import { resolveSite } from './scripts/site-env.mjs';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  // Caminho base e URL do site são detectados automaticamente (GitHub Pages, Vercel ou local).
-  const { base, siteUrl, productionDomain } = resolveSite({ ...env, ...process.env });
+  const { base, siteUrl } = resolveSite({ ...env, ...process.env });
   const businessPhone = (env.VITE_WHATSAPP_NUMBER || process.env.VITE_WHATSAPP_NUMBER || '558587102722').replace(/[^0-9]/g, '');
 
   const siteMetadataPlugin = {
@@ -29,7 +28,6 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), siteMetadataPlugin],
     define: {
       'import.meta.env.VITE_SITE_URL': JSON.stringify(siteUrl),
-      'import.meta.env.VITE_VERCEL_PROJECT_PRODUCTION_URL': JSON.stringify(productionDomain),
     },
     build: { target: 'es2020' },
   };

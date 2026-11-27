@@ -3,7 +3,6 @@ import { nav, site } from '../../config/site.js';
 import useActiveSection from '../../hooks/useActiveSection.js';
 import Icon from '../atoms/Icon.jsx';
 import Button from '../atoms/Button.jsx';
-import { trackEvent } from '../../services/analytics.js';
 import { whatsappMessages } from '../../config/content.js';
 import { whatsappProps } from '../../utils/whatsapp.js';
 
@@ -74,10 +73,10 @@ export default function Header({ ready }) {
             </a>
           ))}
         </nav>
-        <a {...whatsappProps('mobile_menu', whatsappMessages.header)} className="menu__wa" onClick={() => { setOpen(false); trackEvent('whatsapp_contact_open', { source: 'mobile_menu' }); }}>
+        <a {...whatsappProps('mobile_menu', whatsappMessages.header)} className="menu__wa" onClick={() => setOpen(false)}>
           Solicitar atendimento
         </a>
-        <a href={site.instagram.url} className="menu__ig" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('instagram_profile_open', { source: 'mobile_menu' })}>
+        <a href={site.instagram.url} className="menu__ig" target="_blank" rel="noopener noreferrer">
           <Icon name="instagram" size={18} /> {site.instagram.handle}
         </a>
       </div>
